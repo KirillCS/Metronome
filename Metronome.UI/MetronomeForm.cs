@@ -1,13 +1,12 @@
 ﻿using Metronome.Logic;
 using Metronome.UI.Exceptions;
 using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Metronome.UI
 {
-    public partial class MetronomeForm : Form, INotifyPropertyChanged
+    public partial class MetronomeForm : FormBase
     {
         private readonly IMetronome metronome;
         private readonly ISoundEmitter soundEmitter;
@@ -17,8 +16,6 @@ namespace Metronome.UI
 
         private readonly Color buttonStartLabelColor = Color.ForestGreen;
         private readonly Color buttonStopLabelColor = Color.Firebrick;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public MetronomeForm()
         {
@@ -50,7 +47,7 @@ namespace Metronome.UI
                     _ => value
                 };
 
-                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.BeatsPerMinute)));
+                this.OnPropertyChanged(nameof(this.BeatsPerMinute));
             }
         }
 
@@ -71,8 +68,7 @@ namespace Metronome.UI
                 this.metronome.Start();
             }
 
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.CurrentControlButtonLabelText)));
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.CurrentControlButtonLabelColor)));
+            this.OnPropertyChanged(nameof(this.CurrentControlButtonLabelText), nameof(this.CurrentControlButtonLabelColor));
         }
 
         private void SetDataBindings()
