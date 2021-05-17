@@ -1,7 +1,7 @@
 ﻿
 using System.Windows.Forms;
 
-namespace Metronome.UI
+namespace Metronome.UI.Forms
 {
     partial class MetronomeForm
     {

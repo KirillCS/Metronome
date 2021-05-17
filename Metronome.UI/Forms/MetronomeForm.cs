@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Metronome.UI
+namespace Metronome.UI.Forms
 {
     public partial class MetronomeForm : FormBase
     {

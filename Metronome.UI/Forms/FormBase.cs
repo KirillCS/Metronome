@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Metronome.UI
+namespace Metronome.UI.Forms
 {
     public class FormBase : Form, INotifyPropertyChanged
     {

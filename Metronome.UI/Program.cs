@@ -1,4 +1,5 @@
 using Metronome.Logic;
+using Metronome.UI.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
