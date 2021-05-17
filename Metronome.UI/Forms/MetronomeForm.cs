@@ -25,15 +25,12 @@ namespace Metronome.UI.Forms
             this.InitializeComponent();
             this.SetDataBindings();
 
-            this.MinBeatsPerMinutes = 40;
-            this.MaxBeatsPerMinutes = 300;
-
             this.metronome.Ticked += (s, e) => this.soundEmitter.Sound();
         }
 
-        public int MinBeatsPerMinutes { get; }
+        public int MinBeatsPerMinutes { get; } = 40;
 
-        public int MaxBeatsPerMinutes { get; }
+        public int MaxBeatsPerMinutes { get; } = 300;
 
         public int BeatsPerMinute
         {
