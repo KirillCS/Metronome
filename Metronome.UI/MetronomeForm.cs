@@ -1,4 +1,5 @@
 ﻿using Metronome.Logic;
+using Metronome.UI.Exceptions;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -13,14 +14,16 @@ namespace Metronome.UI
 
         private readonly Color buttonStartLabelColor = Color.ForestGreen;
         private readonly Color buttonStopLabelColor = Color.Firebrick;
-
-        private readonly IMetronome metronome = new Logic.Metronome(60);
-        private readonly ISoundEmitter soundEmitter = new SoundEmitter(1000, 50);
+        private readonly IMetronome metronome;
+        private readonly ISoundEmitter soundEmitter;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public MetronomeForm()
         {
+            this.metronome = Program.ServiceProvider.GetService(typeof(IMetronome)) as IMetronome ?? throw new ServiceNotConfiguredException(nameof(IMetronome));
+            this.soundEmitter = Program.ServiceProvider.GetService(typeof(ISoundEmitter)) as ISoundEmitter ?? throw new ServiceNotConfiguredException(nameof(ISoundEmitter));
+
             this.InitializeComponent();
             this.SetDataBindings();
 

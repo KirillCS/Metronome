@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metronome.UI", "Metronome.UI\Metronome.UI.csproj", "{A93F8CD7-1481-4856-9B76-36E4DEE93C12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metronome.Logic", "Metronome.Logic\Metronome.Logic.csproj", "{CBBCC11B-B26A-4E63-A8F3-6AD61AF17DA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metronome.Logic", "Metronome.Logic\Metronome.Logic.csproj", "{CBBCC11B-B26A-4E63-A8F3-6AD61AF17DA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
