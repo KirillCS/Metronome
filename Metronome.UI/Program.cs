@@ -1,4 +1,4 @@
-﻿using Metronome.Logic;
+using Metronome.Logic;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
@@ -10,11 +10,12 @@ namespace Metronome.UI
         public static IServiceProvider ServiceProvider { get; private set; }
 
         /// <summary>
-        /// The main entry point for the application.
+        ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        private static void Main()
+        static void Main()
         {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigureServices();

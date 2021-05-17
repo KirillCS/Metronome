@@ -9,13 +9,14 @@ namespace Metronome.UI
 {
     public partial class MetronomeForm : Form, INotifyPropertyChanged
     {
+        private readonly IMetronome metronome;
+        private readonly ISoundEmitter soundEmitter;
+
         private readonly string buttonStartLabelText = "Start";
         private readonly string buttonStopLabelText = "Stop";
 
         private readonly Color buttonStartLabelColor = Color.ForestGreen;
         private readonly Color buttonStopLabelColor = Color.Firebrick;
-        private readonly IMetronome metronome;
-        private readonly ISoundEmitter soundEmitter;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -42,17 +43,13 @@ namespace Metronome.UI
             get => this.metronome.BeatsPerMinute;
             set
             {
-                if (value < this.MinBeatsPerMinutes)
+                this.metronome.BeatsPerMinute = value switch
                 {
-                    value = this.MinBeatsPerMinutes;
-                }
+                    _ when value < this.MinBeatsPerMinutes => this.MinBeatsPerMinutes,
+                    _ when value > this.MaxBeatsPerMinutes => this.MaxBeatsPerMinutes,
+                    _ => value
+                };
 
-                if (value > this.MaxBeatsPerMinutes)
-                {
-                    value = this.MaxBeatsPerMinutes;
-                }
-
-                this.metronome.BeatsPerMinute = value;
                 this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.BeatsPerMinute)));
             }
         }
