@@ -54,7 +54,7 @@ namespace Metronome.UI.Forms
         public Color CurrentControlButtonLabelColor =>
             this.metronome.IsStarted ? this.buttonStopLabelColor : this.buttonStartLabelColor;
 
-        private void OnControlButtonClicked(object sender, EventArgs e)
+        private void ControlButtonClickedEventHandler(object sender, EventArgs e)
         {
             if (this.metronome.IsStarted)
             {

@@ -72,7 +72,7 @@ namespace Metronome.UI.Forms
             this.controlButton.TabIndex = 3;
             this.controlButton.Text = "Start";
             this.controlButton.UseVisualStyleBackColor = true;
-            this.controlButton.Click += new System.EventHandler(this.OnControlButtonClicked);
+            this.controlButton.Click += new System.EventHandler(this.ControlButtonClickedEventHandler);
             // 
             // beatsLabel
             // 
