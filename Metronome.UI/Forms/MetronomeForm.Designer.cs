@@ -45,9 +45,9 @@ namespace Metronome.UI.Forms
             this.label2.Location = new System.Drawing.Point(77, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 21);
+            this.label2.Size = new System.Drawing.Size(127, 21);
             this.label2.TabIndex = 2;
-            this.label2.Text = "beats per minutes";
+            this.label2.Text = "beats per minute";
             // 
             // beatsSlider
             // 
