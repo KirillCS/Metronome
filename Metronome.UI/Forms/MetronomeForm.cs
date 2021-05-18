@@ -1,56 +1,50 @@
 ﻿using Metronome.Logic;
+using Metronome.UI.Exceptions;
 using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Metronome.UI
+namespace Metronome.UI.Forms
 {
-    public partial class MetronomeForm : Form, INotifyPropertyChanged
+    public partial class MetronomeForm : FormBase
     {
+        private readonly IMetronome metronome;
+        private readonly ISoundEmitter soundEmitter;
+
         private readonly string buttonStartLabelText = "Start";
         private readonly string buttonStopLabelText = "Stop";
 
         private readonly Color buttonStartLabelColor = Color.ForestGreen;
         private readonly Color buttonStopLabelColor = Color.Firebrick;
 
-        private readonly IMetronome metronome = new Logic.Metronome(60);
-        private readonly ISoundEmitter soundEmitter = new SoundEmitter(1000, 50);
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public MetronomeForm()
         {
+            this.metronome = Program.ServiceProvider.GetService(typeof(IMetronome)) as IMetronome ?? throw new ServiceNotConfiguredException(nameof(IMetronome));
+            this.soundEmitter = Program.ServiceProvider.GetService(typeof(ISoundEmitter)) as ISoundEmitter ?? throw new ServiceNotConfiguredException(nameof(ISoundEmitter));
+
             this.InitializeComponent();
             this.SetDataBindings();
-
-            this.MinBeatsPerMinutes = 40;
-            this.MaxBeatsPerMinutes = 300;
 
             this.metronome.Ticked += (s, e) => this.soundEmitter.Sound();
         }
 
-        public int MinBeatsPerMinutes { get; }
+        public int MinBeatsPerMinutes { get; } = 40;
 
-        public int MaxBeatsPerMinutes { get; }
+        public int MaxBeatsPerMinutes { get; } = 300;
 
         public int BeatsPerMinute
         {
             get => this.metronome.BeatsPerMinute;
             set
             {
-                if (value < this.MinBeatsPerMinutes)
+                this.metronome.BeatsPerMinute = value switch
                 {
-                    value = this.MinBeatsPerMinutes;
-                }
+                    _ when value < this.MinBeatsPerMinutes => this.MinBeatsPerMinutes,
+                    _ when value > this.MaxBeatsPerMinutes => this.MaxBeatsPerMinutes,
+                    _ => value
+                };
 
-                if (value > this.MaxBeatsPerMinutes)
-                {
-                    value = this.MaxBeatsPerMinutes;
-                }
-
-                this.metronome.BeatsPerMinute = value;
-                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.BeatsPerMinute)));
+                this.OnPropertyChanged(nameof(this.BeatsPerMinute));
             }
         }
 
@@ -60,7 +54,7 @@ namespace Metronome.UI
         public Color CurrentControlButtonLabelColor =>
             this.metronome.IsStarted ? this.buttonStopLabelColor : this.buttonStartLabelColor;
 
-        private void OnControlButtonClicked(object sender, EventArgs e)
+        private void ControlButtonClickedEventHandler(object sender, EventArgs e)
         {
             if (this.metronome.IsStarted)
             {
@@ -71,8 +65,7 @@ namespace Metronome.UI
                 this.metronome.Start();
             }
 
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.CurrentControlButtonLabelText)));
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.CurrentControlButtonLabelColor)));
+            this.OnPropertyChanged(nameof(this.CurrentControlButtonLabelText), nameof(this.CurrentControlButtonLabelColor));
         }
 
         private void SetDataBindings()

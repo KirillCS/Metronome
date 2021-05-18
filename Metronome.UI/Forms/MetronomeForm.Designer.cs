@@ -1,17 +1,17 @@
 ﻿
 using System.Windows.Forms;
 
-namespace Metronome.UI
+namespace Metronome.UI.Forms
 {
     partial class MetronomeForm
     {
         /// <summary>
-        /// Required designer variable.
+        ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -26,29 +26,28 @@ namespace Metronome.UI
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MetronomeForm));
+            this.label2 = new System.Windows.Forms.Label();
             this.beatsSlider = new System.Windows.Forms.TrackBar();
             this.controlButton = new System.Windows.Forms.Button();
             this.beatsLabel = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.beatsSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(77, 22);
-            label2.Margin = new System.Windows.Forms.Padding(0);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(134, 21);
-            label2.TabIndex = 2;
-            label2.Text = "beats per minutes";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(77, 22);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "beats per minute";
             // 
             // beatsSlider
             // 
@@ -65,7 +64,7 @@ namespace Metronome.UI
             // controlButton
             // 
             this.controlButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.controlButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.controlButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.controlButton.ForeColor = System.Drawing.Color.ForestGreen;
             this.controlButton.Location = new System.Drawing.Point(397, 12);
             this.controlButton.Name = "controlButton";
@@ -73,11 +72,11 @@ namespace Metronome.UI
             this.controlButton.TabIndex = 3;
             this.controlButton.Text = "Start";
             this.controlButton.UseVisualStyleBackColor = true;
-            this.controlButton.Click += new System.EventHandler(this.OnControlButtonClicked);
+            this.controlButton.Click += new System.EventHandler(this.ControlButtonClickedEventHandler);
             // 
             // beatsLabel
             // 
-            this.beatsLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.beatsLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.beatsLabel.Location = new System.Drawing.Point(12, 9);
             this.beatsLabel.Margin = new System.Windows.Forms.Padding(0);
             this.beatsLabel.Name = "beatsLabel";
@@ -93,9 +92,9 @@ namespace Metronome.UI
             this.ClientSize = new System.Drawing.Size(484, 111);
             this.Controls.Add(this.beatsLabel);
             this.Controls.Add(this.controlButton);
-            this.Controls.Add(label2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.beatsSlider);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
@@ -114,6 +113,7 @@ namespace Metronome.UI
         private System.Windows.Forms.TrackBar beatsSlider;
         private System.Windows.Forms.Button controlButton;
         private Label beatsLabel;
+        private Label label2;
     }
 }
 
