@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Metronome.Logic
+namespace Metronome.Logic.Implementation
 {
     public sealed class Metronome : IMetronome
     {

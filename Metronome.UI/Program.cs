@@ -1,4 +1,5 @@
 using Metronome.Logic;
+using Metronome.Logic.Implementation;
 using Metronome.UI.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -10,9 +11,6 @@ namespace Metronome.UI
     {
         public static IServiceProvider ServiceProvider { get; private set; }
 
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -26,7 +24,7 @@ namespace Metronome.UI
         private static void ConfigureServices()
         {
             var services = new ServiceCollection();
-            services.AddTransient<IMetronome, Logic.Metronome>();
+            services.AddTransient<IMetronome, Logic.Implementation.Metronome>();
             services.AddTransient<ISoundEmitter, SoundEmitter>(p => new SoundEmitter(1000, 50));
 
             ServiceProvider = services.BuildServiceProvider();
