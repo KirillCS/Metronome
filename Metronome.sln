@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metronome.UI", "Metronome.UI\Metronome.UI.csproj", "{5A0F923D-2B64-4D7D-B726-FE97AF6BB56F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metronome.UI", "Metronome.UI\Metronome.UI.csproj", "{5A0F923D-2B64-4D7D-B726-FE97AF6BB56F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metronome.Logic", "Metronome.Logic\Metronome.Logic.csproj", "{A5DD4B80-3AE5-4F5B-9E4F-3DE2F6725A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metronome.Logic", "Metronome.Logic\Metronome.Logic.csproj", "{A5DD4B80-3AE5-4F5B-9E4F-3DE2F6725A9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metronome.Logic.Implementation", "Metronome.Logic.Implementation\Metronome.Logic.Implementation.csproj", "{0EE6466D-4F1E-4903-9932-ADB1AB090A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metronome.DependencyResolver", "Metronome.DependencyResolver\Metronome.DependencyResolver.csproj", "{C83889D5-F9BF-41E9-808A-FBA8746F1DB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{A5DD4B80-3AE5-4F5B-9E4F-3DE2F6725A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5DD4B80-3AE5-4F5B-9E4F-3DE2F6725A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5DD4B80-3AE5-4F5B-9E4F-3DE2F6725A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE6466D-4F1E-4903-9932-ADB1AB090A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE6466D-4F1E-4903-9932-ADB1AB090A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE6466D-4F1E-4903-9932-ADB1AB090A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE6466D-4F1E-4903-9932-ADB1AB090A99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83889D5-F9BF-41E9-808A-FBA8746F1DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83889D5-F9BF-41E9-808A-FBA8746F1DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83889D5-F9BF-41E9-808A-FBA8746F1DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83889D5-F9BF-41E9-808A-FBA8746F1DB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Metronome.Logic
+namespace Metronome.Logic.Implementation
 {
     public class SoundEmitter : ISoundEmitter
     {
