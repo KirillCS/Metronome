@@ -1,9 +1,7 @@
-using Metronome.Logic;
-using Metronome.Logic.Implementation;
 using Metronome.UI.Forms;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
+using Metronome.DependencyResolver;
 
 namespace Metronome.UI
 {
@@ -17,17 +15,8 @@ namespace Metronome.UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ConfigureServices();
+            ServiceProvider = Resolver.CreateServiceProvider();
             Application.Run(new MetronomeForm());
-        }
-
-        private static void ConfigureServices()
-        {
-            var services = new ServiceCollection();
-            services.AddTransient<IMetronome, Logic.Implementation.Metronome>();
-            services.AddTransient<ISoundEmitter, SoundEmitter>(p => new SoundEmitter(1000, 50));
-
-            ServiceProvider = services.BuildServiceProvider();
         }
     }
 }
